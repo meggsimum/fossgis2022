@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="author" content="Jakob Miksch" />
+  <title> Web-APIs für geographische Anwendungen | FOSSGIS 2022</title>
+  <meta name="description" content="GIS mit der Kommandozeile/>
+  <!--[if lt IE 9]>
+    <script src=" ../shared/reveal.js-3.6.0/lib/js/html5shiv.js">
+  </script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="../shared/reveal.js-3.6.0/css/reveal.css" />
+  <link rel="stylesheet" href="../shared/reveal.js-3.6.0/css/theme/white.css" />
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Merriweather" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Cantarell" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/customized.css" />
+  <link rel="stylesheet" href="../shared/css/meggsimum.css" />
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="../shared/reveal.js-3.6.0/lib/css/zenburn.css" />
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ?
+      '../shared/reveal.js-3.6.0/css/print/pdf.css' :
+      '../shared/reveal.js-3.6.0/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+
+    if (window.location.search.match(/print-pdf/gi)) {
+      var linkCustomPrint = document.createElement('link');
+      linkCustomPrint.rel = 'stylesheet';
+      linkCustomPrint.type = 'text/css';
+      linkCustomPrint.href = '../shared/css/meggsimum-print.css';
+      document.getElementsByTagName('head')[0].appendChild(linkCustomPrint);
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- BEGIN OF SLIDES -->
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="start">
+        <h1>Web-APIs</h1>
+        <h2>
+          für geographische Anwendungen
+        </h2>
+        <p>
+          <small>Jakob Miksch</small>
+          <br>
+          <small>meggsimum - Büro für Geoinformatik</small>
+        </p>
+        <p>
+          <span style="font-size: small;">FOSSGIS 2022, 09.03.2022</span>
+        </p>
+      </section>
+
+      <section id="author-jakob-miksch">
+        <h2>Jakob Miksch</h2>
+        <div class="split-info">
+          <div class="part" style="width:35%">
+            <img src="../shared/img/jakob-miksch.jpg" class="plain" width="200" /><br />
+            <small>
+              <a class="email" href="mailto:jakob@meggsimum">jakob@meggsimum.de</a><br />
+              <a class="github" href="https://github.com/jakobmiksch">@jakobmiksch</a><br />
+              <a class="twitter" href="https://twitter.com/jakobmiksch">@jakobmiksch</a><br />
+            </small><br />
+          </div>
+          <div class="part" style="width:60%">
+            <div class="enumeration">
+              <ul>
+                <li>Geoinformatiker</li>
+                <li>Anwendungsentwickler</li>
+                <li>OSGeo Foundation Charter Member</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="clear:both"></div>
+      </section>
+
+      <section id="about-company-meggsimum">
+        <h2>meggsimum</h2>
+        <div class="split-info">
+          <div class="part" style="width:35%">
+            <img src="../shared/img/meggsimum-logo.png" class="plain" width="400" />
+            <br /><small>
+              <a class="email" href="mailto:info@meggsimum.de">info@meggsimum.de</a><br />
+              <a class="github" href="https://github.com/meggsimum/">@meggsimum</a><br />
+              <a class="twitter" href="https://twitter.com/meggsimum/">@meggsimum</a>
+            </small>
+          </div>
+          <div class="part" style="width:60%">
+            <div class="enumeration">
+              <ul>
+                <li><a href=" https://meggsimum.de/">meggsimum.de</a></li>
+                <li>Dienstleistungen im Bereich GIS, Webmapping &amp; GDI</li>
+                <li>Maßgeschneiderte WebGIS-Lösungen</li>
+                <li>Softwarekonzepte und Softwareentwicklung</li>
+                <li>Geodaten</li>
+                <li>Beratung und Schulung</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="clear:both"></div>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## (Web) APIs
+
+        - API = Application Programming Interface
+        - allgegenwärtig im Internet
+        - Datenaustausch
+        - Softwareentwicklung
+
+      </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## OpenWeatherMap
+
+        ![](img/openweathermap-api.png)
+
+        <small>
+            <a href="https://openweathermap.org/api">https://openweathermap.org/api</a>
+        </small>
+
+        </textarea>
+      </section>
+
+
+      <section data-markdown>
+        <textarea data-template>
+        ## Google Street View
+
+        ![](img/google-streetview-api.png)
+
+        <small>
+            <a href="https://developers.google.com/maps/documentation/streetview/overview">https://developers.google.com/maps/documentation/streetview/overview</a>
+        </small>
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## NASA
+
+        ![](img/nasa-api.png)
+
+        <small>
+            <a href="https://api.nasa.gov/index.html">https://api.nasa.gov/index.html</a>
+        </small>
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ##  Austausch Formate
+
+        - XML
+        - JSON
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ##  XML
+
+
+        ```xml
+        <breakfast_menu>
+            <food>
+                <name>Belgian Waffles</name>
+                <price>$5.95</price>
+                <description>
+            Two of our famous Belgian Waffles with plenty of real maple syrup
+                </description>
+                <calories>650</calories>
+            </food>
+            <food>
+                <name>Strawberry Belgian Waffles</name>
+                <price>$7.95</price>
+                <description>
+            Light Belgian waffles covered with strawberries and whipped cream
+                </description>
+                <calories>900</calories>
+            </food>
+            <food>
+                <name>Berry-Berry Belgian Waffles</name>
+                <price>$8.95</price>
+                <description>
+            Light Belgian waffles covered with an assortment of fresh berries and whipped cream
+                </description>
+                <calories>900</calories>
+            </food>
+            <food>
+                <name>French Toast</name>
+                <price>$4.50</price>
+                <description>
+            Thick slices made from our homemade sourdough bread
+                </description>
+                <calories>600</calories>
+            </food>
+            <food>
+                <name>Homestyle Breakfast</name>
+                <price>$6.95</price>
+                <description>
+            Two eggs, bacon or sausage, toast, and our ever-popular hash browns
+                </description>
+                <calories>950</calories>
+            </food>
+        </breakfast_menu>
+        ```
+        <small>
+            <a href="https://www.w3schools.com/xml/simple.xml">https://www.w3schools.com/xml/simple.xml</a>
+        </small>
+
+        </textarea>
+      </section>
+
+
+      <section data-markdown>
+        <textarea data-template>
+        ##  JSON
+
+        ```json
+        {
+            "squadName": "Super hero squad",
+            "homeTown": "Metro City",
+            "formed": 2016,
+            "secretBase": "Super tower",
+            "active": true,
+            "members": [
+              {
+                "name": "Molecule Man",
+                "age": 29,
+                "secretIdentity": "Dan Jukes",
+                "powers": [
+                  "Radiation resistance",
+                  "Turning tiny",
+                  "Radiation blast"
+                ]
+              },
+              {
+                "name": "Madame Uppercut",
+                "age": 39,
+                "secretIdentity": "Jane Wilson",
+                "powers": [
+                  "Million tonne punch",
+                  "Damage resistance",
+                  "Superhuman reflexes"
+                ]
+              },
+              {
+                "name": "Eternal Flame",
+                "age": 1000000,
+                "secretIdentity": "Unknown",
+                "powers": [
+                  "Immortality",
+                  "Heat Immunity",
+                  "Inferno",
+                  "Teleportation",
+                  "Interdimensional travel"
+                ]
+              }
+            ]
+          }
+        ```
+
+        <small>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON</a>
+        </small>
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## GeoJSON
+
+        ```json
+        {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [125.6, 10.1]
+            },
+            "properties": {
+              "name": "Dinagat Islands"
+            }
+        }
+        ```
+
+          <small>
+              <a href="https://geojson.org/">https://geojson.org/</a>
+          </small>
+
+          </textarea>
+      </section>
+
+
+      <section data-markdown>
+          <textarea data-template>
+          ##  HTTP Requests
+
+          `GET` <br> `POST` <br> `PUT` <br> `PATCH` <br> `DELETE`  <br> ...
+
+          <small>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods</a>
+          </small>
+              </textarea>
+      </section>
+
+      <section data-markdown>
+          <textarea data-template>
+          ##  URL - Query Parameter
+
+          ```
+          https://www.example.com?
+              color=blue&
+              type=dark
+          ```
+          </textarea>
+      </section>
+
+      <section data-markdown>
+          <textarea data-template>
+          ##  Beispiel WMS
+
+          ```
+          https://services.meggsimum.de/geoserver/mgsm-world/wms?
+              service=WMS&
+              version=1.1.0&
+              request=GetMap&
+              layers=mgsm-world:ne_10m_admin_0_countries&
+              bbox=-180.0,-90.0,180.0,83.6341&
+              width=768&
+              height=370&
+              srs=EPSG:4326&
+              format=image/png
+          ```
+          <img src="img/wms-world-map.png" class="plain" height="200"/>
+
+          </textarea>
+      </section>
+
+
+
+        <section data-markdown>
+            <textarea data-template>
+                ##  API Typen
+
+                - SOAP
+                - REST
+                - GraphQL
+                - ...
+            </textarea>
+        </section>
+
+        <section data-markdown>
+            <textarea data-template>
+            ##  OGC Standards
+
+            - `WMS`, `WFS`, `WCS`, ...
+            - Beispiel: [GeoServer (meggsimum)](https://services.meggsimum.de/geoserver/web/)
+            - Weiterentwicklung: RESTful [OGC API](https://ogcapi.ogc.org/)
+
+            </textarea>
+        </section>
+
+
+        <section data-markdown>
+            <textarea data-template>
+              ## Authentifizierung
+
+              typischerweise mit API-key
+
+              ```
+              https://api.openrouteservice.org/v2/directions/driving-car?
+                api_key=<--ADD_YOUR_API_KEY-->&
+                start=8.681495,49.41461&
+                end=8.687872,49.420318
+              ```
+            </textarea>
+          </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ##  Werkzeuge zum Zugriff
+
+        - Webbrowser
+        - Kommandozeile
+        - Programmiersprache
+        - Desktop Programme
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## Webbrowser
+
+        Entwicklerkonsole oder mit JavaScript
+
+          ![](img/browser-dev-tools.png)
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+          ## Kommandozeile
+
+          ```bash
+          curl -X GET \
+          'https://photon.komoot.io/api/?q=salzburg&limit=2'
+          ```
+
+          ergibt:  <!-- .element: class="fragment" data-fragment-index="1" -->
+          ```json
+          {
+          "features": [
+          {
+              "geometry": {
+                  "coordinates": [
+                      13.0464806,
+                      47.7981346
+                  ],
+                  "type": "Point"
+              },
+              "type": "Feature",
+              "properties": {
+                  "osm_id": 86538,
+                  "osm_type": "R",
+                  "extent": [
+                      12.9856478,
+                      47.8543925,
+                      13.1272842,
+                      47.7512115
+                  ],
+                  "country": "Austria",
+                  "osm_key": "place",
+                  "countrycode": "AT",
+                  "osm_value": "city",
+                  "postcode": "5020",
+                  "name": "Salzburg",
+                  "state": "Salzburg",
+                  "type": "city"
+              }
+          },
+          {
+              "geometry": {
+                  "coordinates": [
+                      13.25,
+                      47.4166667
+                  ],
+                  "type": "Point"
+              },
+              "type": "Feature",
+              "properties": {
+                  "osm_id": 86539,
+                  "osm_type": "R",
+                  "extent": [
+                      12.0760956,
+                      48.0414691,
+                      13.996125,
+                      46.943858
+                  ],
+                  "country": "Austria",
+                  "osm_key": "place",
+                  "countrycode": "AT",
+                  "osm_value": "state",
+                  "name": "Salzburg",
+                  "type": "state"
+              }
+          }
+          ],
+          "type": "FeatureCollection"
+          }
+          ```
+          <!-- .element: class="fragment" data-fragment-index="1" -->
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## Python
+
+        ```python
+        import requests
+
+        url = 'https://photon.komoot.io/api/?q=salzburg&limit=2'
+        response = requests.request('GET', url )
+
+        print(response)
+        ```
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## R
+
+        ```R
+        library(httr)
+        library(jsonlite)
+
+        url = "https://photon.komoot.io/api/?q=salzburg"
+        res = GET(url)
+        data = fromJSON(rawToChar(res$content))
+
+        print(data)
+        ```
+
+        </textarea>
+      </section>
+
+
+      <section data-markdown>
+        <textarea data-template>
+        ## JavaScript
+
+        ```js
+        const requestOptions = {
+            method: 'GET'
+          };
+
+        const url = "https://photon.komoot.io/api/?q=salzburg";
+        fetch(url, requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+        ```
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## QGIS
+
+        mit Python oder dem Debugging Panel
+
+        ![](img/qgis-screenshot.png)
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ## Desktop Programme
+
+        [Hoppscotch](https://hoppscotch.io/) oder [Postman](https://www.postman.com/)
+
+        ![](img/hoppscotch-screenshot.png)
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ##  GeoCoding APIs
+
+        - [OpenCage](https://opencagedata.com/)
+        - [openrouteservice](https://openrouteservice.org/)
+        - [Photon](https://photon.komoot.io/)
+        - [Nominatim](https://nominatim.openstreetmap.org/ui/search.html)
+        - ...
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ##  Routing APIs
+
+        - [GraphHopper](https://docs.graphhopper.com/)
+        - [openrouteservice](https://openrouteservice.org/dev/#/api-docs)
+        - [OSRM (FOSSGIS Instanz)](http://map.project-osrm.org/about.html)
+        - ...
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ##  Overpass API
+
+        Datenabfrage von OpenStreetMap ([Beispiel](https://overpass-turbo.eu/s/1dhk))
+
+        ![](img/overpass-screenshot.png)
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+        ##  [Actinia API](https://actinia.mundialis.de/api_docs/)
+
+        Prozessierung von Geodaten mit GRASS GIS
+
+        ![](img/actinia-screenshot.png)
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+                <textarea data-template>
+        ##  Sonnenstand
+
+
+        ```
+        http://voibos.rechenraum.com/voibos/voibos?
+        name=sonnengang&
+        Koordinate=-41390,228170&
+        CRS=31254&
+        Datum=11-21:12:34&
+        H=2&
+        Output=Horizont,Sonnenzeit
+        ```
+
+        <small>
+            <a href="https://cdn.basemap.at/voibos_handbuch_user.pdf">Dokumentation</a>
+        </small>
+
+        </textarea>
+      </section>
+
+        <section>
+
+          <h2>Sonnenstand</h2>
+
+          <img src="img/sonnenstand.png"  height="450px">
+          <br>
+          <small>
+            <a href="https://cdn.basemap.at/voibos_handbuch_user.pdf">Dokumentation</a>
+          </small>
+
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+          ##  Höhenprofil
+
+
+          ```
+          https://voibos.rechenraum.com/voibos/voibos?
+          name=profilservice&
+          Beschriftung=Beispiel&
+          Startkoordinate=12.83935,47.42960&
+          Zielkoordinate=13.027871,47.443578&
+          CRS=4326&
+          Ueberhoehung=1&
+          Stuetzpunktabstand=2&
+          Hintergrund=geolandbasemap&
+          Output=Profil,Lage
+          ```
+
+          <small>
+            <a href="https://cdn.basemap.at/voibos_handbuch_user.pdf">Dokumentation</a>
+          </small>
+
+          </textarea>
+          </section>
+
+
+         <section>
+
+            <h2>Höhenprofil</h2>
+
+            <img src="img/hoehenservice.png"  width="800px">
+            <img src="img/hoehenprofil.png"  width="800px">
+
+         </section>
+
+
+         <section data-markdown>
+           <textarea data-template>
+          ## Links
+
+          - [Folien](https://meggsimum.github.io/fossgis2022/geo-api)
+          - [meggsimum GeoServer Instanz](https://services.meggsimum.de/geoserver/web/)
+          - [meggsimum Webseite](https://meggsimum.de/)
+          - [Vortrag in FOSSGIS Pretalx](https://pretalx.com/fossgis2022/talk/TQVEL3/)
+          - Kontakt: [jakob@meggsimum.de](mailto:jakob@meggsimum.de)
+
+          </textarea>
+        </section>
+
+    </div>
+  </div>
+
+
+  <!-- END OF SLIDES -->
+
+
+  <script src="../shared/reveal.js-3.6.0/lib/js/head.min.js"></script>
+  <script src="../shared/reveal.js-3.6.0/js/reveal.js"></script>
+  <script>
+    (function () {
+      var revealPath = '../shared/reveal.js-3.6.0/';
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          {
+            src: revealPath + 'plugin/markdown/marked.js'
+          },
+          {
+            src: revealPath + 'plugin/markdown/markdown.js'
+          },
+          {
+            src: revealPath + 'plugin/notes/notes.js',
+            async: true
+          },
+          {
+            src: revealPath + 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function () {
+              hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
+    }());
+  </script>
+</body>
+
+</html>
