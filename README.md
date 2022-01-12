@@ -11,6 +11,6 @@ Webmaps einfach erstellen mit Wegue (OpenLayers und Vue.js)
 ## Vorträge
 
 Web-APIs für geographische Anwendungen - Ein Überblick
-- [Folien]() - TODO
+- [Folien](https://meggsimum.github.io/fossgis2022/geo-api)
 - [Pretalx](https://pretalx.com/fossgis2022/talk/TQVEL3/)
 
